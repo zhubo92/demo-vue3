@@ -12,8 +12,9 @@ export default defineConfig(({ mode }: ConfigEnv) => {
   return {
     resolve: {
       alias: {
-        '/@': resolve(__dirname, 'src'),
-        '/cpns': resolve(__dirname, 'src/components'),
+        // '/@': resolve(__dirname, 'src'),
+        '@': resolve(__dirname, 'src'),
+        // '/cpns': resolve(__dirname, 'src/components'),
       },
       extensions: ['.js', '.json', '.ts', '.vue'], // 使用路径别名时想要省略的后缀名，可以自己 增减
     },
@@ -21,12 +22,13 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       target: 'esnext',
     },
     server: {
+      host: '0.0.0.0',
       proxy: {
         // 使用 proxy 实例
-        '/api': {
-          target: env.VITE_APP_API_BASE_URL,
+        '/zd-api': {
+          target: 'https://open.api.luojigou.vip',
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/api/, ''),
+          rewrite: path => path.replace(/^\/zd-api/, ''),
         },
       },
     },

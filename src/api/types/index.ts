@@ -11,3 +11,12 @@ export interface IGetRes {
 export interface IMockLoginRes {
   name: string
 }
+
+export interface IGetListParams {
+  page: number
+  pageSize: number
+}
+
+export interface IRes {
+  data: any
+}

@@ -3,7 +3,9 @@ import {
   IRoleList,
   IUserDetail,
   IUserList,
-} from '/@/api/types/mock'
+} from '@/api/types/mock'
+import { IPunchItem, IPunchQueryParams } from '@/api/types/punch'
+
 export interface CountInterface {
   count: number
 }
@@ -13,4 +15,10 @@ export interface IUser {
   permissionList: IPermissionList[]
   userDetail?: IUserDetail
   curId: number
+}
+
+export interface IPunch {
+  list: IPunchItem[]
+  queryParams: IPunchQueryParams
+  total: number
 }
