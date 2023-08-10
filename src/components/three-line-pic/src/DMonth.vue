@@ -25,17 +25,17 @@ const list = ref([
 const value = ref('at')
 const getConfig = async () => {
   // 替换为接口
-  const res = await (await import('./mockAPi/dm')).default
-  if (res.message === 'success') {
-    const data = res.data
-    const item = list.value.find(_ => _.value === value.value)
-    console.log(item)
-    const date = data[value.value as key].map(i => i.datetime)
-    const min = data[value.value as key].map(i => i.min)
-    const max = data[value.value as key].map(i => i.max)
-    const avg = data[value.value as key].map(i => Math.round(i.avg))
-    options.value = monthConfig(date, min, max, avg, item?.unit, item?.label)
-  }
+  // const res = await (await import('./mockAPi/dm')).default
+  // if (res.message === 'success') {
+  //   const data = res.data
+  //   const item = list.value.find(_ => _.value === value.value)
+  //   console.log(item)
+  //   const date = data[value.value as key].map(i => i.datetime)
+  //   const min = data[value.value as key].map(i => i.min)
+  //   const max = data[value.value as key].map(i => i.max)
+  //   const avg = data[value.value as key].map(i => Math.round(i.avg))
+  //   options.value = monthConfig(date, min, max, avg, item?.unit, item?.label)
+  // }
 }
 getConfig()
 </script>

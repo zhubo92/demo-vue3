@@ -4,35 +4,44 @@ import type { RouteRecordRaw } from 'vue-router'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/main',
+    redirect: '/report',
   },
   {
-    name: 'login',
-    path: '/login',
-    component: () => import('/@/views/login/index.vue'),
+    name: 'punch',
+    path: '/punch',
+    redirect: '/punch/ActivityList',
+    children: [
+      {
+        name: 'ActivityList',
+        path: '/punch/ActivityList',
+        component: () => import('@/views/punch/ActivityList.vue'),
+      },
+    ],
   },
   {
-    name: 'store',
-    path: '/store',
-    component: () => import('/@/views/store/index.vue'),
+    name: 'test',
+    path: '/test',
+    component: () => import('@/views/demo/TestPage.vue'),
   },
   {
-    name: 'main',
-    path: '/main',
-    component: () => import('/@/views/main/MainPage.vue'),
-    redirect: '/main/dashboard/workplace',
-    children: [],
-  },
-  {
-    name: 'request',
-    path: '/request',
-    component: () => import('/@/views/request/index.vue'),
+    name: 'report',
+    path: '/report',
+    component: () => import('@/views/report/EvaluationReport.vue'),
+    meta: {
+      title: '思维芯测评',
+    },
   },
 ]
 
 const router = createRouter({
   routes,
   history: createWebHistory(),
+})
+
+router.beforeEach((to, from) => {
+  console.log('to:', to.path)
+  console.log('from:', from.path)
+  document.title = to.meta.title as string
 })
 
 export default router

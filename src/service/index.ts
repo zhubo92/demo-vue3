@@ -4,9 +4,9 @@ import { AxiosResponse } from 'axios'
 import type { RequestConfig } from './request/types'
 
 export interface YWZResponse<T> {
-  statusCode: number
-  desc: string
-  result: T
+  status: number
+  msg: string
+  data: T
 }
 
 // 重写返回类型
@@ -15,7 +15,7 @@ interface YWZRequestConfig<T, R> extends RequestConfig<YWZResponse<R>> {
 }
 
 const request = new Request({
-  baseURL: import.meta.env.BASE_URL,
+  baseURL: '/zd-api',
   timeout: 1000 * 60 * 5,
   interceptors: {
     // 请求拦截器

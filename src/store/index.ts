@@ -1,5 +1,6 @@
 import { createPinia } from 'pinia'
-import { useCountStore } from './modules/count'
-import { useUserStore } from './modules/user'
+import {useReportStore} from './modules/report'
+import {usePunchStore} from './modules/punch'
+
+export { useReportStore, usePunchStore }
 export default createPinia()
-export { useCountStore, useUserStore }

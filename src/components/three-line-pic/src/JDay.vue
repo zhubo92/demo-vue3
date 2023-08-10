@@ -18,15 +18,15 @@ const visible = computed({
 const options = ref({})
 const getConfig = async () => {
   // 替换为接口
-  const res = await (await import('./mockAPi/jd')).default
-  if (res.message === 'success') {
-    options.value = dayConfig(
-      res.data.odate.map(i => i.split('.')[0].replace(/T/, ' ')),
-      res.data.at,
-      res.data.td,
-      res.data.slp,
-    )
-  }
+  // const res = await (await import('./mockAPi/jd')).default
+  // if (res.message === 'success') {
+  //   options.value = dayConfig(
+  //     res.data.odate.map(i => i.split('.')[0].replace(/T/, ' ')),
+  //     res.data.at,
+  //     res.data.td,
+  //     res.data.slp,
+  //   )
+  // }
 }
 getConfig()
 </script>
